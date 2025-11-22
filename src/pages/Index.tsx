@@ -4,79 +4,19 @@ import { CategoryTabs } from "@/components/CategoryTabs";
 import { FeaturedCarousel } from "@/components/FeaturedCarousel";
 import { ProductCard } from "@/components/ProductCard";
 import { CartButton } from "@/components/CartButton";
-import burgerHero from "@/assets/burger-hero.jpg";
-import burger1 from "@/assets/burger-1.jpg";
-import burger2 from "@/assets/burger-2.jpg";
-import fries from "@/assets/fries.jpg";
-import nuggets from "@/assets/nuggets.jpg";
-import cola from "@/assets/cola.jpg";
+import { allProducts } from "@/data/products";
 
-const products = [
-  {
-    id: "1",
-    name: "X-Treme Burger",
-    description: "Pão com gergelim selado, salada, ovo frito perfeito, carne macia, queijo cheddar, bacon, maionese e molho especial.",
-    price: 14.00,
-    image: burger1,
-    rating: 0,
-  },
-  {
-    id: "2",
-    name: "Double Burger",
-    description: "Pão com gergelim selado na chapa, maionese, salada, 1 ovo, 2 carnes de 59g cada, 2 fatias de bacon e molho especial.",
-    price: 19.00,
-    image: burger2,
-    rating: 0,
-  },
-  {
-    id: "3",
-    name: "Triple Burger",
-    description: "Pão com gergelim selado na chapa, salada, maionese, 2 ovos, 3 carnes de 59g cada, 3 fatias de bacon e molho especial.",
-    price: 23.00,
-    image: burgerHero,
-    rating: 0,
-  },
-  {
-    id: "4",
-    name: "Nuggets",
-    description: "Deliciosa Porção de nuggets sequinhos e quentinhos direto na sua casa 12 unidades.",
-    price: 16.00,
-    image: nuggets,
-    rating: 0,
-  },
-  {
-    id: "5",
-    name: "Batata Chips P",
-    description: "Crocante por fora e macia por dentro, levemente temperada com as mais finas especiarias.",
-    price: 6.00,
-    image: fries,
-    rating: 0,
-  },
-  {
-    id: "6",
-    name: "Batata Cheddar e Bacon P",
-    description: "Deliciosa batata sequinha, com cheddar derretido, coberta por bacon e calabresa frita na hora!",
-    price: 19.00,
-    image: fries,
-    rating: 0,
-  },
-  {
-    id: "7",
-    name: "Anéis de Cebola",
-    description: "10 unidades feitos artesanalmente deliciosos e sequinhos.",
-    price: 18.00,
-    image: fries,
-    rating: 0,
-  },
-  {
-    id: "8",
-    name: "CocaCola Lata",
-    description: "Extremamente gelada",
-    price: 7.00,
-    image: cola,
-    rating: 0,
-  },
-];
+// Pegar produtos em destaque (mix de categorias)
+const featuredProducts = [
+  allProducts.find(p => p.id === "a1"), // X-Treme Burger
+  allProducts.find(p => p.id === "p3"), // Batata Cheddar
+  allProducts.find(p => p.id === "b5"), // Milkshake
+  allProducts.find(p => p.id === "s1"), // Brownie
+  allProducts.find(p => p.id === "p6"), // Nuggets
+  allProducts.find(p => p.id === "a2"), // Double Smash
+  allProducts.find(p => p.id === "b1"), // Coca-Cola
+  allProducts.find(p => p.id === "e3"), // Wings
+].filter(Boolean);
 
 const Index = () => {
   return (
@@ -94,9 +34,18 @@ const Index = () => {
         <CategoryTabs />
         <FeaturedCarousel />
 
+        <div className="mb-8 bg-card rounded-2xl p-6 animate-fade-in">
+          <h2 className="text-2xl font-bold text-foreground mb-2">
+            Destaques do Cardápio
+          </h2>
+          <p className="text-muted-foreground">
+            Conheça nossos produtos mais populares e deliciosos
+          </p>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
-          {products.map((product) => (
-            <ProductCard key={product.id} {...product} />
+          {featuredProducts.map((product) => (
+            <ProductCard key={product!.id} {...product!} />
           ))}
         </div>
 
