@@ -13,14 +13,33 @@ import wings from "@/assets/wings.jpg";
 import brownie from "@/assets/brownie.jpg";
 import cheesecake from "@/assets/cheesecake.jpg";
 
+export interface NutritionalInfo {
+  calories: number;
+  protein: number;
+  carbs: number;
+  fat: number;
+  fiber?: number;
+  sodium?: number;
+}
+
+export interface Ingredient {
+  id: string;
+  name: string;
+  removable: boolean;
+  extraCost?: number;
+}
+
 export interface Product {
   id: string;
   name: string;
   description: string;
   price: number;
   image: string;
+  images?: string[]; // Galeria de imagens
   category: string;
   rating?: number;
+  nutritionalInfo?: NutritionalInfo;
+  ingredients?: Ingredient[];
 }
 
 export const allProducts: Product[] = [
@@ -31,8 +50,27 @@ export const allProducts: Product[] = [
     description: "Pão, hambúrguer, queijo, alface, tomate e maionese.",
     price: 12.00,
     image: classicBurger,
+    images: [classicBurger, burger1, burger2],
     category: "tradicionais",
     rating: 0,
+    nutritionalInfo: {
+      calories: 450,
+      protein: 25,
+      carbs: 42,
+      fat: 18,
+      fiber: 3,
+      sodium: 680,
+    },
+    ingredients: [
+      { id: "i1", name: "Pão", removable: false },
+      { id: "i2", name: "Hambúrguer 120g", removable: false },
+      { id: "i3", name: "Queijo", removable: true },
+      { id: "i4", name: "Alface", removable: true },
+      { id: "i5", name: "Tomate", removable: true },
+      { id: "i6", name: "Maionese", removable: true },
+      { id: "i7", name: "Bacon Extra", removable: false, extraCost: 3.00 },
+      { id: "i8", name: "Ovo Extra", removable: false, extraCost: 2.00 },
+    ],
   },
   {
     id: "t2",
@@ -311,8 +349,29 @@ export const allProducts: Product[] = [
     description: "Pão com gergelim, hambúrguer artesanal 150g, queijo cheddar, bacon, ovo, salada e molho especial.",
     price: 24.00,
     image: burgerHero,
+    images: [burgerHero, burger1, gourmetBurger],
     category: "artesanais",
     rating: 0,
+    nutritionalInfo: {
+      calories: 720,
+      protein: 38,
+      carbs: 52,
+      fat: 35,
+      fiber: 4,
+      sodium: 920,
+    },
+    ingredients: [
+      { id: "i1", name: "Pão com Gergelim", removable: false },
+      { id: "i2", name: "Hambúrguer Artesanal 150g", removable: false },
+      { id: "i3", name: "Queijo Cheddar", removable: true },
+      { id: "i4", name: "Bacon Crocante", removable: true },
+      { id: "i5", name: "Ovo Frito", removable: true },
+      { id: "i6", name: "Alface", removable: true },
+      { id: "i7", name: "Tomate", removable: true },
+      { id: "i8", name: "Molho Especial", removable: true },
+      { id: "i9", name: "Hambúrguer Extra", removable: false, extraCost: 8.00 },
+      { id: "i10", name: "Queijo Extra", removable: false, extraCost: 3.00 },
+    ],
   },
   {
     id: "a2",
