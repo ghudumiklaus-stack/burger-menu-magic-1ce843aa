@@ -1,6 +1,7 @@
 import { Star, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
+import { useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
 interface ProductCardProps {
@@ -14,13 +15,17 @@ interface ProductCardProps {
 
 export const ProductCard = ({ id, name, description, price, image, rating = 0 }: ProductCardProps) => {
   const { addItem } = useCart();
+  const navigate = useNavigate();
 
   const handleAddToCart = () => {
     addItem({ id, name, price, image });
   };
 
   return (
-    <div className="bg-card rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-fade-in">
+    <div 
+      className="bg-card rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-fade-in cursor-pointer"
+      onClick={() => navigate(`/produto/${id}`)}
+    >
       <div className="aspect-[4/3] overflow-hidden">
         <img
           src={image}
@@ -50,7 +55,10 @@ export const ProductCard = ({ id, name, description, price, image, rating = 0 }:
             R$ {price.toFixed(2)}
           </span>
           <Button 
-            onClick={handleAddToCart}
+            onClick={(e) => {
+              e.stopPropagation();
+              handleAddToCart();
+            }}
             className="bg-success hover:bg-success/90 text-success-foreground gap-2 shadow-lg"
           >
             <Plus className="w-5 h-5" />
