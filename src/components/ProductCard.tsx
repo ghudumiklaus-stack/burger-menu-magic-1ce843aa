@@ -1,7 +1,7 @@
 import { Star, Plus } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
-import { useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
 interface ProductCardProps {
