@@ -1,7 +1,10 @@
 import { Star, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useCart } from "@/contexts/CartContext";
+import { cn } from "@/lib/utils";
 
 interface ProductCardProps {
+  id: string;
   name: string;
   description: string;
   price: number;
@@ -9,7 +12,13 @@ interface ProductCardProps {
   rating?: number;
 }
 
-export const ProductCard = ({ name, description, price, image, rating = 0 }: ProductCardProps) => {
+export const ProductCard = ({ id, name, description, price, image, rating = 0 }: ProductCardProps) => {
+  const { addItem } = useCart();
+
+  const handleAddToCart = () => {
+    addItem({ id, name, price, image });
+  };
+
   return (
     <div className="bg-card rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-fade-in">
       <div className="aspect-[4/3] overflow-hidden">
@@ -40,7 +49,10 @@ export const ProductCard = ({ name, description, price, image, rating = 0 }: Pro
           <span className="text-2xl font-bold text-success">
             R$ {price.toFixed(2)}
           </span>
-          <Button className="bg-success hover:bg-success/90 text-success-foreground gap-2 shadow-lg">
+          <Button 
+            onClick={handleAddToCart}
+            className="bg-success hover:bg-success/90 text-success-foreground gap-2 shadow-lg"
+          >
             <Plus className="w-5 h-5" />
             Adicionar
           </Button>
@@ -49,7 +61,3 @@ export const ProductCard = ({ name, description, price, image, rating = 0 }: Pro
     </div>
   );
 };
-
-function cn(...classes: string[]) {
-  return classes.filter(Boolean).join(" ");
-}

@@ -3,6 +3,7 @@ import { SearchBar } from "@/components/SearchBar";
 import { CategoryTabs } from "@/components/CategoryTabs";
 import { FeaturedCarousel } from "@/components/FeaturedCarousel";
 import { ProductCard } from "@/components/ProductCard";
+import { CartButton } from "@/components/CartButton";
 import burgerHero from "@/assets/burger-hero.jpg";
 import burger1 from "@/assets/burger-1.jpg";
 import burger2 from "@/assets/burger-2.jpg";
@@ -12,6 +13,7 @@ import cola from "@/assets/cola.jpg";
 
 const products = [
   {
+    id: "1",
     name: "X-Treme Burger",
     description: "Pão com gergelim selado, salada, ovo frito perfeito, carne macia, queijo cheddar, bacon, maionese e molho especial.",
     price: 14.00,
@@ -19,6 +21,7 @@ const products = [
     rating: 0,
   },
   {
+    id: "2",
     name: "Double Burger",
     description: "Pão com gergelim selado na chapa, maionese, salada, 1 ovo, 2 carnes de 59g cada, 2 fatias de bacon e molho especial.",
     price: 19.00,
@@ -26,6 +29,7 @@ const products = [
     rating: 0,
   },
   {
+    id: "3",
     name: "Triple Burger",
     description: "Pão com gergelim selado na chapa, salada, maionese, 2 ovos, 3 carnes de 59g cada, 3 fatias de bacon e molho especial.",
     price: 23.00,
@@ -33,6 +37,7 @@ const products = [
     rating: 0,
   },
   {
+    id: "4",
     name: "Nuggets",
     description: "Deliciosa Porção de nuggets sequinhos e quentinhos direto na sua casa 12 unidades.",
     price: 16.00,
@@ -40,6 +45,7 @@ const products = [
     rating: 0,
   },
   {
+    id: "5",
     name: "Batata Chips P",
     description: "Crocante por fora e macia por dentro, levemente temperada com as mais finas especiarias.",
     price: 6.00,
@@ -47,6 +53,7 @@ const products = [
     rating: 0,
   },
   {
+    id: "6",
     name: "Batata Cheddar e Bacon P",
     description: "Deliciosa batata sequinha, com cheddar derretido, coberta por bacon e calabresa frita na hora!",
     price: 19.00,
@@ -54,6 +61,7 @@ const products = [
     rating: 0,
   },
   {
+    id: "7",
     name: "Anéis de Cebola",
     description: "10 unidades feitos artesanalmente deliciosos e sequinhos.",
     price: 18.00,
@@ -61,6 +69,7 @@ const products = [
     rating: 0,
   },
   {
+    id: "8",
     name: "CocaCola Lata",
     description: "Extremamente gelada",
     price: 7.00,
@@ -86,8 +95,8 @@ const Index = () => {
         <FeaturedCarousel />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
-          {products.map((product, index) => (
-            <ProductCard key={index} {...product} />
+          {products.map((product) => (
+            <ProductCard key={product.id} {...product} />
           ))}
         </div>
 
@@ -95,6 +104,8 @@ const Index = () => {
           © 2025 Cardápio Digital - Todos os direitos reservados
         </footer>
       </div>
+
+      <CartButton />
     </div>
   );
 };
