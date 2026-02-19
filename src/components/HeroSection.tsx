@@ -11,8 +11,8 @@ export const HeroSection = () => {
   useEffect(() => {
     // Preload all frames for smooth playback
     for (let i = 0; i < TOTAL_FRAMES; i++) {
-        const img = new Image();
-        img.src = getImagePath(i);
+      const img = new Image();
+      img.src = getImagePath(i);
     }
 
     const interval = setInterval(() => {
@@ -34,8 +34,8 @@ export const HeroSection = () => {
         <img
           src={getImagePath(currentFrame)}
           alt="Cinematic burger animation"
-          className="absolute inset-0 w-full h-full object-cover scale-105 animate-float opacity-100"
-        />
+          className="absolute inset-0 w-full h-full object-cover scale-105 animate-float opacity-100" />
+
         
         {/* Glow Effects on Background */}
         <div className="absolute inset-0 bg-gradient-to-tr from-red-600/10 via-transparent to-orange-500/10 mix-blend-overlay"></div>
@@ -58,9 +58,9 @@ export const HeroSection = () => {
             <span className="text-yellow-400 italic">DE CHEDDAR</span>
           </h1>
 
-          <p className="text-white/60 mb-10 text-lg md:text-xl font-medium max-w-lg">
-            Descubra a combinação perfeita de crocância, suculência
-            e nosso cheddar cremoso exclusivo em um burger cinematográfico.
+          <p className="text-white/60 mb-10 text-lg md:text-xl font-medium max-w-lg">Descubra a combinação perfeita de crocância, suculência e nosso cheddar cremoso exclusivo em um hamburguer
+.
+
           </p>
 
           <div className="flex flex-wrap gap-5">
@@ -79,8 +79,8 @@ export const HeroSection = () => {
 
       {/* Brilho decorativo no canto */}
       <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-orange-600/20 blur-[120px] rounded-full z-10 animate-pulse"></div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default HeroSection;
