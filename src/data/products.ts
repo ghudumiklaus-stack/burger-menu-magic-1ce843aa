@@ -1,17 +1,18 @@
-import burgerHero from "@/assets/burger-hero.jpg";
-import burger1 from "@/assets/burger-1.jpg";
-import burger2 from "@/assets/burger-2.jpg";
-import classicBurger from "@/assets/classic-burger.jpg";
-import gourmetBurger from "@/assets/gourmet-burger.jpg";
-import fries from "@/assets/fries.jpg";
-import nuggets from "@/assets/nuggets.jpg";
-import cola from "@/assets/cola.jpg";
-import orangeJuice from "@/assets/orange-juice.jpg";
-import milkshake from "@/assets/milkshake.jpg";
-import mozzarellaSticks from "@/assets/mozzarella-sticks.jpg";
-import wings from "@/assets/wings.jpg";
-import brownie from "@/assets/brownie.jpg";
-import cheesecake from "@/assets/cheesecake.jpg";
+// Premium Unsplash Images for a "WOW" effect
+const burgerHero = "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=1200&q=80";
+const burger1 = "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80";
+const burger2 = "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=800&q=80";
+const classicBurger = "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=80";
+const gourmetBurger = "https://images.unsplash.com/photo-1553979459-d2229ba7433b?auto=format&fit=crop&w=800&q=80";
+const fries = "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=800&q=80";
+const nuggets = "https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=800&q=80";
+const cola = "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=800&q=80";
+const orangeJuice = "https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=800&q=80";
+const milkshake = "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=800&q=80";
+const mozzarellaSticks = "https://images.unsplash.com/photo-1531451390451-2bcc9850529d?auto=format&fit=crop&w=800&q=80";
+const wings = "https://images.unsplash.com/photo-1567620832903-9fc6debc209f?auto=format&fit=crop&w=800&q=80";
+const brownie = "https://images.unsplash.com/photo-1564355808539-22fda35bed7e?auto=format&fit=crop&w=800&q=80";
+const cheesecake = "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=800&q=80";
 
 export interface NutritionalInfo {
   calories: number;

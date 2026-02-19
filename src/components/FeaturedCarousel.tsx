@@ -8,10 +8,22 @@ interface FeaturedItem {
 }
 
 const featuredItems: FeaturedItem[] = [
-  { name: "Suco de maracujá 300ml", image: "/placeholder.svg" },
-  { name: "Batata Chips P", image: "/placeholder.svg" },
-  { name: "Mother Love Burger", image: "/placeholder.svg" },
-  { name: "X-Treme Burger", image: "/placeholder.svg" },
+  { 
+    name: "Suco de maracujá 300ml", 
+    image: "https://images.unsplash.com/photo-1595981267035-7b04ca84a82d?auto=format&fit=crop&w=800&q=80" 
+  },
+  { 
+    name: "Double Smash Burger", 
+    image: "https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=800&q=80" 
+  },
+  { 
+    name: "Mother Love Burger", 
+    image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80" 
+  },
+  { 
+    name: "X-Treme Burger", 
+    image: "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=800&q=80" 
+  },
 ];
 
 export const FeaturedCarousel = () => {

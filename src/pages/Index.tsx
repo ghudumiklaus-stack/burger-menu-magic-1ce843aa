@@ -1,4 +1,4 @@
-import { MenuHeader } from "@/components/MenuHeader";
+import { HeroSection } from "@/components/HeroSection";
 import { SearchBar } from "@/components/SearchBar";
 import { CategoryTabs } from "@/components/CategoryTabs";
 import { FeaturedCarousel } from "@/components/FeaturedCarousel";
@@ -22,17 +22,23 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <div className="max-w-7xl mx-auto px-4 py-8">
-        <div className="flex items-center justify-between mb-8">
-          <h1 className="text-3xl font-bold text-primary">Cardápio Digital</h1>
-          <button className="text-foreground hover:text-primary transition-colors">
+        <div className="flex items-center justify-between mb-8 px-2">
+          <div className="flex items-center gap-2">
+            <span className="text-2xl">🍔</span>
+            <span className="text-xl font-black uppercase tracking-tighter">Burger Magic</span>
+          </div>
+          <button className="text-foreground hover:text-primary transition-colors font-medium">
             Fazer Login
           </button>
         </div>
 
-        <MenuHeader />
-        <SearchBar />
-        <CategoryTabs />
-        <FeaturedCarousel />
+        <HeroSection />
+        
+        <div className="space-y-8">
+          <SearchBar />
+          <CategoryTabs />
+          <FeaturedCarousel />
+        </div>
 
         <div className="mb-8 bg-card rounded-2xl p-6 animate-fade-in">
           <h2 className="text-2xl font-bold text-foreground mb-2">
