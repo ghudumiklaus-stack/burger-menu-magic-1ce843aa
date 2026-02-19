@@ -59,7 +59,7 @@ export const HeroSection = () => {
           </h1>
 
           <p className="text-white/60 mb-10 text-lg md:text-xl font-medium max-w-lg">Descubra a combinação perfeita de crocância, suculência e nosso cheddar cremoso exclusivo em um hamburguer
-.
+
 
           </p>
 
