@@ -1,43 +1,16 @@
-import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { Beef, ChevronRight } from "lucide-react";
 
-const TOTAL_FRAMES = 80;
-const FRAME_DURATION = 66; // approx 15 fps for a 5.3s loop
-
 export const HeroSection = () => {
-  const [currentFrame, setCurrentFrame] = useState(0);
-
-  useEffect(() => {
-    // Preload all frames for smooth playback
-    for (let i = 0; i < TOTAL_FRAMES; i++) {
-      const img = new Image();
-      img.src = getImagePath(i);
-    }
-
-    const interval = setInterval(() => {
-      setCurrentFrame((prev) => (prev + 1) % TOTAL_FRAMES);
-    }, FRAME_DURATION);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const getImagePath = (index: number) => {
-    const frameNumber = index.toString().padStart(3, "0");
-    return `/imagens/Cinematic_slow_motion_1080p_202602190047_${frameNumber}.jpg`;
-  };
-
   return (
     <section className="relative w-full min-h-[90vh] md:min-h-screen overflow-hidden rounded-[2.5rem] mb-12 shadow-2xl shadow-black/50">
-      {/* BACKGROUND CINEMATOGRÁFICO (SEQUÊNCIA COMPLETA) */}
+      {/* BACKGROUND GIF */}
       <div className="absolute inset-0 z-0 bg-black overflow-hidden">
         <img
-          src={getImagePath(currentFrame)}
+          src="/imagens/hero-burger.gif"
           alt="Cinematic burger animation"
-          className="absolute inset-0 w-full h-full object-cover scale-105 animate-float opacity-100" />
-
-        
-        {/* Glow Effects on Background */}
+          className="absolute inset-0 w-full h-full object-cover scale-105"
+        />
         <div className="absolute inset-0 bg-gradient-to-tr from-red-600/10 via-transparent to-orange-500/10 mix-blend-overlay"></div>
       </div>
 
@@ -58,9 +31,8 @@ export const HeroSection = () => {
             <span className="text-yellow-400 italic">DE CHEDDAR</span>
           </h1>
 
-          <p className="text-white/60 mb-10 text-lg md:text-xl font-medium max-w-lg">Descubra a combinação perfeita de crocância, suculência e nosso cheddar cremoso exclusivo em um hamburguer
-
-
+          <p className="text-white/60 mb-10 text-lg md:text-xl font-medium max-w-lg">
+            Descubra a combinação perfeita de crocância, suculência e nosso cheddar cremoso exclusivo em um hamburguer
           </p>
 
           <div className="flex flex-wrap gap-5">
@@ -77,10 +49,9 @@ export const HeroSection = () => {
         </div>
       </div>
 
-      {/* Brilho decorativo no canto */}
       <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-orange-600/20 blur-[120px] rounded-full z-10 animate-pulse"></div>
-    </section>);
-
+    </section>
+  );
 };
 
 export default HeroSection;
