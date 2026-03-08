@@ -1,5 +1,3 @@
-import { Button } from "./ui/button";
-import { Beef, ChevronRight } from "lucide-react";
 
 export const HeroSection = () => {
   return (
