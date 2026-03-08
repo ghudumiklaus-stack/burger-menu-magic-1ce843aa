@@ -65,11 +65,38 @@ export const CheckoutForm = ({ onBack }: CheckoutFormProps) => {
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${RESTAURANT_PHONE}?text=${encodedMessage}`;
 
+    // Enviar dados do pedido para o webhook
+    const orderData = {
+      cliente: {
+        nome: formData.name,
+        telefone: formData.phone,
+        endereco: `${formData.address}, ${formData.number}`,
+        complemento: formData.complement,
+        bairro: formData.neighborhood,
+      },
+      itens: items.map((item) => ({
+        nome: item.name,
+        quantidade: item.quantity,
+        precoUnitario: item.price,
+        subtotal: item.price * item.quantity,
+      })),
+      total,
+      formaPagamento: formData.paymentMethod,
+      observacoes: formData.observation,
+      dataHora: new Date().toISOString(),
+    };
+
+    fetch(WEBHOOK_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(orderData),
+    }).catch((err) => console.error("Erro ao enviar webhook:", err));
+
     // Abrir WhatsApp
     window.open(whatsappUrl, "_blank");
 
     // Limpar carrinho e mostrar confirmação
-    toast.success("Redirecionando para o WhatsApp...");
+    toast.success("Pedido enviado com sucesso!");
     setTimeout(() => {
       clearCart();
       onBack();
