@@ -12,6 +12,7 @@ interface CheckoutFormProps {
 }
 
 const RESTAURANT_PHONE = "5511999999999"; // Número do restaurante (alterar conforme necessário)
+const WEBHOOK_URL = "https://n8n.autoia.store/webhook/0df3e9c8-8e90-47de-b330-fe423647cf16";
 
 export const CheckoutForm = ({ onBack }: CheckoutFormProps) => {
   const { items, total, clearCart } = useCart();
