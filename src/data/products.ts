@@ -1,3 +1,4 @@
+import mozzarellaSticksImg from "@/assets/mozzarella-sticks.jpg";
 // Premium Unsplash Images for a "WOW" effect
 const burgerHero = "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=1200&q=80";
 const burger1 = "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80";
