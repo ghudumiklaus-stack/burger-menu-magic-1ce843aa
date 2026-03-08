@@ -35,17 +35,6 @@ export const HeroSection = () => {
             Descubra a combinação perfeita de crocância, suculência e nosso cheddar cremoso exclusivo em um hamburguer
           </p>
 
-          <div className="flex flex-wrap gap-5">
-            <Button className="bg-orange-500 hover:bg-orange-600 text-white font-bold h-16 px-10 rounded-full text-xl shadow-lg shadow-orange-900/40 transition-all hover:scale-105 active:scale-95 group">
-              <Beef className="mr-3 h-7 w-7 transition-transform group-hover:rotate-12" />
-              Pedir agora
-            </Button>
-
-            <Button variant="outline" className="border-white/30 text-white hover:bg-white/10 hover:border-white font-bold h-16 px-10 rounded-full text-xl backdrop-blur-md transition-all">
-              Ver cardápio
-              <ChevronRight className="ml-2 h-6 w-6" />
-            </Button>
-          </div>
         </div>
       </div>
 
