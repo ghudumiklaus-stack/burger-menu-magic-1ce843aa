@@ -24,16 +24,14 @@ export const CartButton = () => {
       <SheetTrigger asChild>
         <Button
           size="lg"
-          className="fixed bottom-6 right-6 z-50 h-16 w-16 rounded-full shadow-2xl bg-success hover:bg-success/90 text-success-foreground"
+          className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 h-14 rounded-full shadow-2xl bg-primary hover:bg-primary/90 text-primary-foreground px-6 gap-3 animate-in slide-in-from-bottom-4 duration-500"
         >
-          <div className="relative">
-            <ShoppingCart className="w-6 h-6" />
-            {itemCount > 0 && (
-              <span className="absolute -top-2 -right-2 bg-primary text-primary-foreground text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
-                {itemCount}
-              </span>
-            )}
-          </div>
+          <ShoppingCart className="w-5 h-5" />
+          <span className="font-bold text-base">Ver Carrinho</span>
+          <span className="bg-primary-foreground/20 text-primary-foreground text-sm font-bold rounded-full px-2 py-0.5">
+            {itemCount} {itemCount === 1 ? "item" : "itens"}
+          </span>
+          <span className="font-bold text-base">• R$ {total.toFixed(2)}</span>
         </Button>
       </SheetTrigger>
       <SheetContent className="w-full sm:max-w-lg overflow-y-auto">
