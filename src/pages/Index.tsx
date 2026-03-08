@@ -22,14 +22,11 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <div className="max-w-7xl mx-auto px-4 py-8">
-        <div className="flex items-center justify-between mb-8 px-2">
+        <div className="flex items-center mb-8 px-2">
           <div className="flex items-center gap-2">
             <span className="text-2xl">🍔</span>
             <span className="text-xl font-black uppercase tracking-tighter">Burger Magic</span>
           </div>
-          <button className="text-foreground hover:text-primary transition-colors font-medium">
-            Fazer Login
-          </button>
         </div>
 
         <HeroSection />
