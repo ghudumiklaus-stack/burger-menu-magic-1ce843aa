@@ -26,7 +26,7 @@ export const CheckoutForm = ({ onBack }: CheckoutFormProps) => {
     observation: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     // Validação básica
@@ -35,36 +35,7 @@ export const CheckoutForm = ({ onBack }: CheckoutFormProps) => {
       return;
     }
 
-    // Formatar mensagem do pedido
-    let message = `🍔 *NOVO PEDIDO - Cardápio Digital*\n\n`;
-    message += `👤 *Cliente:* ${formData.name}\n`;
-    message += `📱 *Telefone:* ${formData.phone}\n\n`;
-    
-    message += `📍 *Endereço de Entrega:*\n`;
-    message += `${formData.address}, ${formData.number}\n`;
-    if (formData.complement) message += `${formData.complement}\n`;
-    message += `Bairro: ${formData.neighborhood}\n\n`;
-    
-    message += `🛍️ *Itens do Pedido:*\n`;
-    items.forEach((item) => {
-      message += `• ${item.quantity}x ${item.name} - R$ ${(item.price * item.quantity).toFixed(2)}\n`;
-    });
-    
-    message += `\n💰 *Total: R$ ${total.toFixed(2)}*\n\n`;
-    
-    if (formData.paymentMethod) {
-      message += `💳 *Forma de Pagamento:* ${formData.paymentMethod}\n`;
-    }
-    
-    if (formData.observation) {
-      message += `\n📝 *Observações:* ${formData.observation}\n`;
-    }
-
-    // Criar link do WhatsApp
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/${RESTAURANT_PHONE}?text=${encodedMessage}`;
-
-    // Enviar dados do pedido para o webhook
+    // Dados do pedido para o webhook
     const orderData = {
       cliente: {
         nome: formData.name,
@@ -85,21 +56,20 @@ export const CheckoutForm = ({ onBack }: CheckoutFormProps) => {
       dataHora: new Date().toISOString(),
     };
 
-    fetch(WEBHOOK_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(orderData),
-    }).catch((err) => console.error("Erro ao enviar webhook:", err));
+    try {
+      await fetch(WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(orderData),
+      });
 
-    // Abrir WhatsApp
-    window.open(whatsappUrl, "_blank");
-
-    // Limpar carrinho e mostrar confirmação
-    toast.success("Pedido enviado com sucesso!");
-    setTimeout(() => {
+      toast.success("Pedido enviado com sucesso!");
       clearCart();
       onBack();
-    }, 1000);
+    } catch (err) {
+      console.error("Erro ao enviar pedido:", err);
+      toast.error("Erro ao enviar pedido. Tente novamente.");
+    }
   };
 
   const handleChange = (
