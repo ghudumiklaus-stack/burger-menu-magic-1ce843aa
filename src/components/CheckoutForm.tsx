@@ -202,7 +202,7 @@ export const CheckoutForm = ({ onBack }: CheckoutFormProps) => {
           size="lg"
         >
           <Send className="w-5 h-5 mr-2" />
-          Enviar Pedido via WhatsApp
+          Enviar Pedido
         </Button>
         <p className="text-xs text-center text-muted-foreground">
           Você será redirecionado para o WhatsApp para confirmar o pedido
